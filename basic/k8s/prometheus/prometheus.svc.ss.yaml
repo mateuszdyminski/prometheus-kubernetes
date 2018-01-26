@@ -68,15 +68,8 @@ spec:
       - name: alerts-volume
         configMap:
           name: alerts
-  volumeClaimTemplates:
-  - metadata:
-      name: prometheus
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      storageClassName: standard
-      resources:
-        requests:
-          storage: 20Gi
+      - name: prometheus
+        emptyDir: {}
 ---
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
